@@ -29,7 +29,7 @@ if True:
     # messages persist across reruns.
     if "messages" not in st.session_state:
         st.session_state.messages = [
-            {"role": "System", "content": "The user has uploaded a reciept. The user will ask questions about the reciept. The assistant will provide insights. Here is the reciept JSON: " + str(reclist)} 
+            {"role": "system", "content": "The user has uploaded a reciept. The user will ask questions about the reciept. The assistant will provide insights. Here is the reciept JSON: " + str(reclist)} 
         ]
 
     # Display the existing chat messages via `st.chat_message`.
@@ -48,7 +48,8 @@ if True:
 
         # Generate a response using the OpenAI API.
         stream = client.chat.completions.create(
-            model="deepseek-r1-distill-llama-70b",
+            # model="deepseek-r1-distill-llama-70b",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {"role": m["role"], "content": m["content"]}
                 for m in st.session_state.messages
