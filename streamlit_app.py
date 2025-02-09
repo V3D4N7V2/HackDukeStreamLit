@@ -29,7 +29,8 @@ if True:
     # messages persist across reruns.
     if "messages" not in st.session_state:
         st.session_state.messages = [
-            {"role": "system", "content": "The user has uploaded a reciept. The user will ask questions about the reciept. The assistant will provide insights. Here is the reciept JSON: " + str(reclist)} 
+            {"role": "system", "content": "The user has uploaded a reciept. The user will ask questions about the reciept. The assistant will provide insights. Here is the reciept JSON: " + str(reclist)} ,
+            {"role": "assistant", "content": "Hi, I'm the Reciept Chatbot. I'm here to help you with your reciept. Feel free to ask me anything!"},
         ]
 
     # Display the existing chat messages via `st.chat_message`.
